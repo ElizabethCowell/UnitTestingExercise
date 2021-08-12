@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 namespace UnitTestingExercise
 {
     public class UnitTestMethods
@@ -45,6 +46,27 @@ namespace UnitTestingExercise
             return "Manchu";
         }
 
+        public int Factorial(int a)
+        {
+            int sum = 1;
+            for (int i = 1; i <= a; i++)
+            {
+                sum *= i;
+            }
+            return sum;
+        }
+
+        public bool PassWord(string passWord)
+        {
+            //Password must contain at least 8 characters, one number and one uppercase letter
+            bool check = false;
+            if (passWord.Any(c => char.IsDigit(c)) && passWord.Any(b => char.IsUpper(b)) && passWord.Length >= 8)
+            {
+                check = true;
+            }
+            
+            return check;
+        }
         
     }
 }

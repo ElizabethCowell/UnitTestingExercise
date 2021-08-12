@@ -76,5 +76,39 @@ namespace UnitTestingExercise.Tests
             //Assert
             Assert.Equal("Manchu", actual);
         }
+        [Theory]
+        [InlineData(0, 1)]
+        [InlineData(1, 1)]
+        [InlineData(5, 120)]
+        [InlineData(10, 3628800)]
+
+        public void GetFactorial(int x, int expected)
+        {
+            //Arrange
+            var fact = new UnitTestMethods();
+            //Act
+            var actual = fact.Factorial(x);
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+        [Theory]
+        [InlineData("Passw0rd", true)]
+        [InlineData("password", false)]
+        [InlineData("MonkeyB0ne", true)]
+        [InlineData("MonkeyBone", false)]
+        [InlineData("", false)]
+        [InlineData("        ", false)]
+        [InlineData("12345678", false)]
+        
+        public void Password(string tester, bool expected)
+        {
+            //Arrange
+            var pass = new UnitTestMethods();
+            //Act
+            var actual = pass.PassWord(tester);
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
     }
 }
